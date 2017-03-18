@@ -18,6 +18,10 @@
 
 
 <body>
+
+<A href="/listerAdherent.htm"><FONT face="Arial" color="#004080">Retour
+    liste adherents </FONT></A>
+
 <H1> Modification d'un adhérent </H1>
 
 <DIV align="center">
@@ -40,8 +44,6 @@
             &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         </P></FORM>
-
-    <button type="button"><a href="/listerAdherent.htm">Retour</a></button>
 </DIV>
 <BR>
 </body>

@@ -10,7 +10,7 @@
 </head>
 <body>
 <P>
-    <A href="index.jsp"><FONT face="Arial" color="#004080">Retour
+    <A href="/index.htm"><FONT face="Arial" color="#004080">Retour
         Accueil</FONT></A>
 </P>
 <P align="center">
@@ -36,8 +36,15 @@
             <td>${item.prixOeuvrevente}</td>
             <td>${item.proprietaire.nomProprietaire}</td>
             <td>${item.proprietaire.prenomProprietaire}</td>
-            <td><a href="#"><font
-                    face="Arial">Réserver</font></a></td>
+            <c:choose>
+                <c:when test="${item.etatOeuvrevente != 'R'}">
+                    <td><a href="ajouterReservation"><font
+                            face="Arial">Réserver</font></a></td>
+                </c:when>
+                <c:otherwise>
+                    <td>Unavailable</td>
+                </c:otherwise>
+            </c:choose>
         </tr>
     </c:forEach>
 </TABLE>

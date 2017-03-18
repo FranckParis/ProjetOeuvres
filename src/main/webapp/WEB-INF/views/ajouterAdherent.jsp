@@ -11,6 +11,10 @@
 
 
 <body>
+
+<A href="index.htm"><FONT face="Arial" color="#004080">Retour
+    Accueil</FONT></A>
+
 	<H1> Ajout d'un adhérent </H1> 
 
 <DIV align="center">

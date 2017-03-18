@@ -30,7 +30,8 @@ import com.epul.oeuvres.metier.*;
 import org.springframework.ui.Model;
 
 
-
+import java.sql.*;
+import java.sql.Date;
 import java.util.*;
 
 ///
@@ -94,7 +95,7 @@ public class MultiControleur {
 	@RequestMapping(value = "updateAdherent/{id}")
 	public ModelAndView updateAdherent(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
 
-		String destinationPage = "";
+		//String destinationPage = "";
 		try {
 			Adherent unAdherent = new Adherent();
 			unAdherent.setIdAdherent(id);
@@ -105,7 +106,7 @@ public class MultiControleur {
 			unService.updateAdherent(unAdherent);
 		} catch (Exception e) {
 			request.setAttribute("MesErreurs", e.getMessage());
-			destinationPage = "Erreur";
+			//destinationPage = "Erreur";
 		}
 		//destinationPage = "/listerAdherent";
 		return new ModelAndView("redirect:/listerAdherent.htm");
@@ -119,7 +120,7 @@ public class MultiControleur {
 			Service unService = new Service();
 			request.setAttribute("adherent", unService.consulterAdherent(id));
 			request.setAttribute("idAdherent", id);
-			destinationPage = "modifierAdherent";
+			destinationPage = "/modifierAdherent";
 
 		} catch (Exception e) {
 			request.setAttribute("MesErreurs", e.getMessage());
@@ -127,6 +128,23 @@ public class MultiControleur {
 		}
 
 		return new ModelAndView(destinationPage);
+	}
+
+	@RequestMapping(value = "supprimerAdherent/{id}")
+	public ModelAndView supprimerAdherent(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+			unService.supprimerAdherent(id);
+			//destinationPage = "modifierAdherent";
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+
+		return new ModelAndView("redirect:/listerAdherent.htm");
 	}
 
 	// /
@@ -168,4 +186,105 @@ public class MultiControleur {
 		return new ModelAndView(destinationPage);
 	}
 
+	@RequestMapping(value = "listerReservations")
+	public ModelAndView listerReservations(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String destinationPage;
+		try {
+			// HttpSession session = request.getSession();
+			Service unService = new Service();
+			request.setAttribute("reservations", unService.consulterListeReservation());
+			destinationPage = "listerReservations";
+		} catch (MonException e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			destinationPage = "Erreur";
+		}
+		return new ModelAndView(destinationPage);
+	}
+
+	@RequestMapping(value = "ajouterReservation")
+	public ModelAndView ajouterReservation(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		String destinationPage = "";
+		try {
+			Service unService = new Service();
+			request.setAttribute("adherents", unService.consulterListeAdherents());
+			request.setAttribute("oeuvres", unService.consulterListeOeuvresventeLibres());
+			destinationPage = "ajouterReservation";
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			destinationPage = "Erreur";
+		}
+		return new ModelAndView(destinationPage);
+	}
+
+	@RequestMapping(value = "insererReservation")
+	public ModelAndView insererReservation(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+			Reservation res = new Reservation();
+
+			Adherent ad = unService.consulterAdherent(Integer.parseInt(request.getParameter("adherent")));
+			Oeuvrevente ov = unService.rechercherOeuvreIdParam(Integer.parseInt(request.getParameter("oeuvre")));
+			java.sql.Date date = new Date(System.currentTimeMillis());
+
+			res.setDate(date);
+			res.setAdherent(ad);
+			res.setOeuvrevente(ov);
+			res.setStatut("non confirmee");
+
+			unService.insertReservation(res);
+
+			ov.setEtatOeuvrevente("R");
+			unService.updateOeuvre(ov);
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+		//destinationPage = "/listerReservations";
+		return new ModelAndView("redirect:/listerReservations");
+	}
+
+	@RequestMapping(value = "supprimerReservation/{id}")
+	public ModelAndView supprimerReservation(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+			unService.supprimerReservation(id);
+			Oeuvrevente ov = unService.rechercherOeuvreIdParam(id);
+			ov.setEtatOeuvrevente("L");
+			unService.updateOeuvre(ov);
+
+			//destinationPage = "modifierAdherent";
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+
+		return new ModelAndView("redirect:/listerReservations");
+	}
+
+	@RequestMapping(value = "confirmerReservation/{id}")
+	public ModelAndView confirmerReservation(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+			Reservation res = unService.rechercherReservationIdParam(id);
+			res.setStatut("confirmee");
+			unService.updateReservation(res);
+
+			//destinationPage = "modifierAdherent";
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+
+		return new ModelAndView("redirect:/listerReservations");
+	}
 }

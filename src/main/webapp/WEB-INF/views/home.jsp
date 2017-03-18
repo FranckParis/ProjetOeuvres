@@ -30,12 +30,12 @@
 				fonctionnalité voulue:</u></font>
 	</p>
 	<ul>
-		<li><a href="ajouterAdherent.htm"><font
-				face="Arial">Ajout Adhérent</font></a></li>
 		<li><a href="listerAdherent.htm"><font
-				face="Arial">lister les adhérents</font></a><font face="Arial"> </font></li>
+				face="Arial">Adhérents</font></a><font face="Arial"> </font></li>
 		<li><a href="listerOeuvresvente"><font
-				face="Arial">Lister les oeuvres</font></a><font face="Arial"> </font></li>
+				face="Arial">Oeuvres</font></a><font face="Arial"> </font></li>
+		<li><a href="listerReservations"><font
+				face="Arial">Réservations</font></a><font face="Arial"> </font></li>
 		<li><a href="javascript:fermer()"><font face="Arial">Quitter</font></a><font
 			face="Arial"> </font></li>
 	</ul>

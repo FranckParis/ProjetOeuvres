@@ -10,8 +10,11 @@
 </head>
 <body>
 <P>
-	<A href="index.jsp"><FONT face="Arial" color="#004080">Retour
+	<A href="/index.htm"><FONT face="Arial" color="#004080">Retour
 		Accueil</FONT></A>
+	<br/>
+	<A href="ajouterAdherent.htm"><font
+			face="Arial">Ajout Adhérent</font></A>
 </P>
 <P align="center">
 	<FONT face="Arial" size="5" color="#004080"><U> <STRONG>Listing&nbsp;des
@@ -26,7 +29,7 @@
 		<TH>Prénom</TH>
 		<TH>Ville</TH>
 		<TH>Modifier</TH>
-
+		<TH>Supprimer</TH>
 	</TR>
 
 	<c:forEach items="${mesAdherents}" var="item">
@@ -37,6 +40,8 @@
 			<td>${item.villeAdherent}</td>
 			<td><a href="modifierAdherent/${item.idAdherent}"><font
 					face="Arial">Modifier</font></a></td>
+			<td><a href="supprimerAdherent/${item.idAdherent}"><font
+					face="Arial">Supprimer</font></a></td>
 		</tr>
 	</c:forEach>
 </TABLE>

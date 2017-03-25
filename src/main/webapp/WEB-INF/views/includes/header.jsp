@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="refresh" content="0;URL=javascript:fermer();">
+    <link rel="icon" href="/resources/img/painting-landscape-icon-7.ico" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel='stylesheet' href='/webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet' href='/webjars/bootstrap-select/1.12.0/css/bootstrap-select.min.css'>

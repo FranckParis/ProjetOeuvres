@@ -1,43 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=javascript:fermer();">
-<title>Expo : Médiathèque De POLYTECH</title>
-</head>
+<jsp:include page="includes/header.jsp" >
+	<jsp:param name="title" value="Expo : Médiathèque De POLYTECH"/>
+</jsp:include>
 
+<div id="index">
+	<div class="title flex-start-center-wrap">
+		<div class="col-md-7">
+			<img src="/resources/img/banniere-deco-mediatheque_0.jpg" class="img-responsive" alt="Responsive image">
+		</div>
+		<div class="col-md-5">
+			<h1>Médiathèque de POLYTECH</h1>
+			<h2>Gestion de l'exposition 2016</h2>
+		</div>
+	</div>
 
-<script language="JavaScript">
-	function fermer() {
+	<div class="container mainContainer">
+		<div class="row jumbotron">
+			<div class="col-md-6">
+				<h3>Sélectionnez la fonctionnalité voulue:</h3>
+				<ul>
+					<li><a href="ajouterAdherent.htm">Ajout Adhérent</a></li>
+					<li><a href="listerAdherent.htm">lister les adhérents</a></li>
+					<li><a href="javascript:fermer()">Quitter</a></li>
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<h3>Sélectionnez la fonctionnalité voulue:</h3>
+				<ul>
+					<li><a href="listerOeuvresvente">lister les oeuvres</a></li>
+					<li><a href="listerReservations">lister les réservations</a></li>
+					<li><a href="ajouterReservation">Réserver une oeuvre</a></li>
+					<li><a href="javascript:fermer()">Quitter</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
-	}
-</script>
-
-<body>
-	<p align="center"></p>
-	<p align="center">
-		<font face="Arial" size="4"><u>Médiathèque de POLYTECH </u></font>
-	</p>
-	<p align="center">
-		<font color="#004080" face="Arial" size="4">Gestion de
-			l'exposition 2016</font>
-	</p>
-	<p align="left">
-		<font color="#004080" face="Arial"><u>Sélectionnez la
-				fonctionnalité voulue:</u></font>
-	</p>
-	<ul>
-		<li><a href="listerAdherent.htm"><font
-				face="Arial">Adhérents</font></a><font face="Arial"> </font></li>
-		<li><a href="listerOeuvresvente"><font
-				face="Arial">Oeuvres</font></a><font face="Arial"> </font></li>
-		<li><a href="listerReservations"><font
-				face="Arial">Réservations</font></a><font face="Arial"> </font></li>
-		<li><a href="javascript:fermer()"><font face="Arial">Quitter</font></a><font
-			face="Arial"> </font></li>
-	</ul>
-</body>
-</html>
+<jsp:include page="includes/footer.jsp" />

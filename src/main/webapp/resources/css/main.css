@@ -1,0 +1,127 @@
+html, body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: WhiteSmoke;
+  color: #333333;
+  min-height: 100vh; }
+
+p {
+  font-size: 1.2em; }
+
+a {
+  font-size: 1.2em;
+  color: #1067AE;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  -ms-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s; }
+  a:hover {
+    color: #2090ea;
+    text-decoration: none; }
+  a:focus {
+    color: #1067AE;
+    text-decoration: none; }
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #1067AE; }
+
+h2 {
+  text-align: center; }
+
+.marginTop {
+  margin-top: 5em; }
+
+.mainContainer {
+  padding-bottom: 1.5em; }
+
+.flex--center-wrap, .flex-start-center-wrap, .flex-center-center-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.flex-start-center-wrap {
+  align-items: flex-start; }
+
+.flex-center-center-wrap {
+  align-items: center; }
+
+.flex-center--wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+table tr td, th {
+  vertical-align: middle !important; }
+
+.customTable thead, .customTable tfoot {
+  background-color: #545454;
+  color: #ffffff; }
+.customTable thead tr:hover, .customTable tfoot tr:hover {
+  background-color: #545454 !important; }
+.customTable .glyphicon {
+  color: #1067AE;
+  -webkit-transition: color 0.2s ease 0s;
+  -moz-transition: color 0.2s ease 0s;
+  -o-transition: color 0.2s ease 0s;
+  -ms-transition: color 0.2s ease 0s;
+  transition: color 0.2s ease 0s; }
+.customTable .tiny {
+  width: 80px; }
+.customTable .medium {
+  width: 160px; }
+.customTable tbody tr td {
+  -webkit-transition: background-color 0.2s ease 0s;
+  -moz-transition: background-color 0.2s ease 0s;
+  -o-transition: background-color 0.2s ease 0s;
+  -ms-transition: background-color 0.2s ease 0s;
+  transition: background-color 0.2s ease 0s; }
+.customTable tbody tr:hover td {
+  background-color: silver; }
+
+.navbarCustom {
+  margin-bottom: 0;
+  border-radius: 0; }
+
+.dropdown-menu > li > a {
+  padding: 6px 20px; }
+
+/* Footer */
+#footer {
+  background: #444444;
+  color: #87827C;
+  height: 58px;
+  padding: 6px 0px; }
+  #footer p {
+    margin: 0px; }
+
+#page-wrapper {
+  min-height: 100vh; }
+  #page-wrapper #header {
+    height: 51px;
+    width: 100%; }
+  #page-wrapper #main {
+    padding-bottom: 58px;
+    margin-bottom: -58px; }
+
+#index .title {
+  margin-bottom: 6em; }
+
+#list .title {
+  margin-bottom: 2em; }
+
+#list .title {
+  margin-bottom: 2em; }
+
+#form h2 {
+  text-align: left;
+  font-weight: bold; }
+
+/*# sourceMappingURL=main.css.map */

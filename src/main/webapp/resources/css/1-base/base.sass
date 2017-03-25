@@ -1,0 +1,58 @@
+html, body
+  font-family: 'Source Sans Pro', sans-serif
+  background-color: _palette(general, bg)
+  color: _palette(general, default)
+  min-height: 100vh
+
+p
+  font-size: 1.2em
+
+a
+  font-size: 1.2em
+  color: _palette(general, highlight)
+  @include transition(all,0.2s,ease,0s)
+  &:hover
+    color: lighten(_palette(general, highlight), 15%)
+    text-decoration: none
+  &:focus
+    color: _palette(general, highlight)
+    text-decoration: none
+
+h1
+  text-align: center
+  text-decoration: underline
+  font-weight: bold
+  color: _palette(general, highlight)
+
+h2
+  text-align: center
+
+.marginTop
+  margin-top: 5em
+
+// CONTAINERS //
+.mainContainer
+  padding-bottom: 1.5em
+
+.flex--center-wrap
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+
+.flex-start-center-wrap
+  @extend .flex--center-wrap
+  align-items: flex-start
+
+.flex-center-center-wrap
+  @extend .flex--center-wrap
+  align-items: center
+
+.flex-center--wrap
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+
+.flex-center-center
+  display: flex
+  align-items: center
+  justify-content: center

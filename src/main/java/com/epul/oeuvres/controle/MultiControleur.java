@@ -35,7 +35,7 @@ import java.sql.Date;
 import java.util.*;
 
 ///
-/// Les méthode du contrôleur répondent à des sollicitations
+/// Les mï¿½thode du contrï¿½leur rï¿½pondent ï¿½ des sollicitations
 /// des pages JSP
 
 @Controller
@@ -86,7 +86,7 @@ public class MultiControleur {
 			destinationPage = "ajouterAdherent";
 		} catch (Exception e) {
 			request.setAttribute("MesErreurs", e.getMessage());
-			destinationPage = "rreur";
+			destinationPage = "Erreur";
 		}
 
 		return new ModelAndView(destinationPage);
@@ -120,7 +120,7 @@ public class MultiControleur {
 			Service unService = new Service();
 			request.setAttribute("adherent", unService.consulterAdherent(id));
 			request.setAttribute("idAdherent", id);
-			destinationPage = "/modifierAdherent";
+			destinationPage = "modifierAdherent";
 
 		} catch (Exception e) {
 			request.setAttribute("MesErreurs", e.getMessage());

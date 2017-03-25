@@ -1,52 +1,60 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Affichage de tous les Oeuvres</title>
-</head>
-<body>
-<P>
-    <A href="/index.htm"><FONT face="Arial" color="#004080">Retour
-        Accueil</FONT></A>
-</P>
-<P align="center">
-    <FONT face="Arial" size="5" color="#004080"><U> <STRONG>Listing&nbsp;des
-        Oeuvres </STRONG></U></FONT>
-</P>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<TABLE BORDER="1">
-    <CAPTION>Tableau des Oeuvres</CAPTION>
-    <TR>
-        <TH>Titre</TH>
-        <TH>Etat</TH>
-        <TH>Prix</TH>
-        <TH>Nom Propriétaire</TH>
-        <TH>Prénom Propriétaire</TH>
-        <TH>Réserver Oeuvre</TH>
-    </TR>
+<jsp:include page="includes/header.jsp" >
+    <jsp:param name="title" value="Affichage de toutes les oeuvres"/>
+</jsp:include>
 
-    <c:forEach items="${mesOeuvresvente}" var="item">
-        <tr>
-            <td>${item.titreOeuvrevente}</td>
-            <td>${item.etatOeuvrevente}</td>
-            <td>${item.prixOeuvrevente}</td>
-            <td>${item.proprietaire.nomProprietaire}</td>
-            <td>${item.proprietaire.prenomProprietaire}</td>
-            <c:choose>
-                <c:when test="${item.etatOeuvrevente != 'R'}">
-                    <td><a href="ajouterReservation"><font
-                            face="Arial">Réserver</font></a></td>
-                </c:when>
-                <c:otherwise>
-                    <td>Unavailable</td>
-                </c:otherwise>
-            </c:choose>
-        </tr>
-    </c:forEach>
-</TABLE>
-</body>
-</html>
+
+<div id="list" class="container mainContainer">
+    <div class="title">
+        <h1>Listing des Oeuvres</h1>
+    </div>
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
+        <TABLE id="listOeuvres" class="table table-striped table-bordered table-hover customTable">
+            <thead>
+                <TR>
+                    <TH>Titre</TH>
+                    <TH>Etat</TH>
+                    <TH>Prix</TH>
+                    <TH>Nom Propriétaire</TH>
+                    <TH>Prénom Propriétaire</TH>
+                    <TH data-orderable="false" class="tiny">Réserver</TH>
+                </TR>
+            </thead>
+
+            <tbody>
+                <c:forEach items="${mesOeuvresvente}" var="item">
+                    <tr>
+                        <td>${item.titreOeuvrevente}</td>
+                        <td>${item.etatOeuvrevente}</td>
+                        <td>${item.prixOeuvrevente}</td>
+                        <td>${item.proprietaire.nomProprietaire}</td>
+                        <td>${item.proprietaire.prenomProprietaire}</td>
+                        <c:choose>
+                            <c:when test="${item.etatOeuvrevente != 'R'}">
+                                <td><a class="btn btn-primary" href="ajouterReservation">Réserver</a></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><a class="btn btn-default disabled" href="ajouterReservation" disabled>Réservé</a></td>
+                            </c:otherwise>
+                        </c:choose>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </TABLE>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#listOeuvres').dataTable( {
+            "order": [[0, "asc"]],
+            "autoWidth": false,
+            fixedHeader: true
+        });
+    });
+</script>
+
+<jsp:include page="includes/footer.jsp" />

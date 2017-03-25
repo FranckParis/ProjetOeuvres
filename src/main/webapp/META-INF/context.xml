@@ -7,7 +7,7 @@
             auth="Container"
             type="javax.sql.DataSource"
             username="root"
-            password="secret"
+            password="chameau"
             driverClassName="com.mysql.jdbc.Driver"
             url="jdbc:mysql://localhost:3306/baseoeuvre"
             maxActive="8"

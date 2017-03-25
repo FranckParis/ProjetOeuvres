@@ -1,51 +1,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Réservation d'une oeuvre</title>
-</head>
-<SCRIPT language="Javascript" type="text/javascript"></SCRIPT>
-    <script type="text/javascript" src="js/foncControle.js"></script>
 
+<jsp:include page="includes/header.jsp" >
+    <jsp:param name="title" value="Ajouter un adhérent"/>
+</jsp:include>
 
-<body>
+<div id="form" class="container mainContainer marginTop">
 
-<A href="index.htm"><FONT face="Arial" color="#004080">Retour
-    Accueil</FONT></A>
-<br/>
-<A href="listerReservations"><FONT face="Arial" color="#004080">Retour
-    liste réservations</FONT></A>
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Réserver une oeuvre</h2>
+            </div>
+            <form name='identification' method="post" action="insererReservation">
+                <div class="panel-body">
+                    <div class="row form-group">
+                        <label class="col-xs-12" for="adherent">Adherent</label>
+                        <select class="col-xs-12 selectpicker" name="adherent"id="adherent" data-live-search="true">
+                            <c:forEach items="${adherents}" var="item">
+                                <option value=${item.idAdherent}>${item.nomAdherent} ${item.prenomAdherent}</option>
+                            </c:forEach>
+                        </select>                    </div>
+                    <div class="row form-group">
+                        <label class="col-xs-12" for="oeuvre">Oeuvre</label>
+                        <select class="col-xs-12 selectpicker" name="oeuvre" id="oeuvre" data-live-search="true">
+                            <c:forEach items="${oeuvres}" var="item">
+                                <option value=${item.idOeuvrevente}>${item.titreOeuvrevente}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <input class="btn btn-primary" type="submit" name="bt" value="Réserver">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-<H1> Réservation d'une oeuvre </H1>
-
-<DIV align="center">
-    <FORM  name='identification' method="post" action="insererReservation" onsubmit="return teste()">
-        <P align="left"><FONT face="Arial" color="#004080"></FONT>
-
-            <label for="adherent">Adherent :</label>
-            <select name="adherent" value=""  id ="adherent">
-                <c:forEach items="${adherents}" var="item">
-                    <option value=${item.idAdherent}>${item.nomAdherent} ${item.prenomAdherent}</option>
-                </c:forEach>
-            </select>
-            <br/>
-            <label for="oeuvre">Oeuvre :</label>
-            <select name="oeuvre" value=""  id ="oeuvre">
-                <c:forEach items="${oeuvres}" var="item">
-                    <option value=${item.idOeuvrevente}>${item.titreOeuvrevente}</option>
-                </c:forEach>
-            </select>
-
-            <!-- Boutons Ajouter -->
-
-            <INPUT type="submit" name="bt"  value="Réserver" >
-            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        </P></FORM>
-</DIV>
-<BR>
-</body>
-</html>
+<jsp:include page="includes/footer.jsp" />

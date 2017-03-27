@@ -4,12 +4,12 @@
 		 pageEncoding="UTF-8"%>
 
 <jsp:include page="includes/header.jsp" >
-	<jsp:param name="title" value="Affichage de tous les adhérents"/>
+	<jsp:param name="title" value="Listing des adhérents"/>
 </jsp:include>
 
 <div id="list" class="container mainContainer">
 	<div class="title">
-		<h1>Listing des Adhérents</h1>
+		<h1 class="centralTitle">Listing des adhérents</h1>
 	</div>
 	<div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
 		<TABLE id="listAdherents" class="table table-striped table-bordered table-hover customTable">

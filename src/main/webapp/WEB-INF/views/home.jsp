@@ -20,17 +20,17 @@
 			<div class="col-md-6">
 				<h3>Sélectionnez la fonctionnalité voulue:</h3>
 				<ul>
-					<li><a href="ajouterAdherent.htm">Ajout Adhérent</a></li>
-					<li><a href="listerAdherent.htm">lister les adhérents</a></li>
+					<li><a href="ajouterAdherent.htm">Ajouter un adhérent</a></li>
+					<li><a href="listerAdherent.htm">Lister les adhérents</a></li>
 					<li><a href="javascript:fermer()">Quitter</a></li>
 				</ul>
 			</div>
 			<div class="col-md-6">
 				<h3>Sélectionnez la fonctionnalité voulue:</h3>
 				<ul>
-					<li><a href="ajouterOeuvrevente">ajouter une oeuvre</a></li>
-					<li><a href="listerOeuvresvente">lister les oeuvres</a></li>
-					<li><a href="listerReservations">lister les réservations</a></li>
+					<li><a href="ajouterOeuvrevente">Ajouter une oeuvre</a></li>
+					<li><a href="listerOeuvresvente">Lister les oeuvres</a></li>
+					<li><a href="listerReservations">Lister les réservations</a></li>
 					<li><a href="ajouterReservation">Réserver une oeuvre</a></li>
 					<li><a href="javascript:fermer()">Quitter</a></li>
 				</ul>

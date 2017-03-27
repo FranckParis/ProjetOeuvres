@@ -48,17 +48,17 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adhérents <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="ajouterAdherent.htm">Ajout Adhérent</a></li>
-                                <li><a href="listerAdherent.htm">Lister les adhérents</a></li>
+                                <li><a href="/ajouterAdherent.htm">Ajouter un Adhérent</a></li>
+                                <li><a href="/listerAdherent.htm">Lister les adhérents</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Oeuvres <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="ajouterOeuvrevente">ajouter une oeuvre</a></li>
-                                <li><a href="listerOeuvresvente">lister les oeuvres</a></li>
-                                <li><a href="listerReservations">lister les réservations</a></li>
-                                <li><a href="ajouterReservation">Réserver une oeuvre</a></li>
+                                <li><a href="/ajouterOeuvrevente">Ajouter une oeuvre</a></li>
+                                <li><a href="/listerOeuvresvente">Lister les oeuvres</a></li>
+                                <li><a href="/listerReservations">Lister les réservations</a></li>
+                                <li><a href="/ajouterReservation">Réserver une oeuvre</a></li>
                             </ul>
                         </li>
                     </ul>

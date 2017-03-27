@@ -3,7 +3,7 @@
          pageEncoding="UTF-8"%>
 
 <jsp:include page="includes/header.jsp" >
-    <jsp:param name="title" value="Ajouter une reservation"/>
+    <jsp:param name="title" value="Réserver une oeuvre"/>
 </jsp:include>
 
 <div id="form" class="container mainContainer marginTop">
@@ -13,7 +13,7 @@
             <div class="panel-heading">
                 <h2>Réserver une oeuvre</h2>
             </div>
-            <form name='identification' method="post" action="insererReservation">
+            <form name='identification' method="post" action="/insererReservation">
                 <div class="panel-body">
                     <div class="row form-group">
                         <label class="col-xs-12" for="adherent">Adherent</label>

@@ -3,12 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <jsp:include page="includes/header.jsp" >
-    <jsp:param name="title" value="Affichage de toutes les réservations"/>
+    <jsp:param name="title" value="Listing des réservations"/>
 </jsp:include>
 
 <div id="list" class="container mainContainer">
     <div class="title">
-        <h1>Listing des Réservations</h1>
+        <h1 class="centralTitle">Listing des réservations</h1>
     </div>
     <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-12 col-lg-offset-0">
         <TABLE id="listReservations" class="table table-striped table-bordered table-hover customTable">

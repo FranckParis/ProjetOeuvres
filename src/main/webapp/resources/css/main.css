@@ -77,6 +77,8 @@ table tr td, th {
   width: 80px; }
 .customTable .medium {
   width: 160px; }
+.customTable .large {
+  width: 220px; }
 .customTable tbody tr td {
   -webkit-transition: background-color 0.2s ease 0s;
   -moz-transition: background-color 0.2s ease 0s;
@@ -116,9 +118,12 @@ table tr td, th {
 
 #list .title {
   margin-bottom: 2em; }
-
-#list .title {
-  margin-bottom: 2em; }
+  #list .title .centralTitle {
+    border-bottom: 1px solid #1067AE;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: left;
+    color: #333333; }
 
 #form h2 {
   text-align: left;

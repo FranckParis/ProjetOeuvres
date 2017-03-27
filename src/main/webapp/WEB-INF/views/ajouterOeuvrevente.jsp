@@ -20,7 +20,10 @@
                     </div>
                     <div class="form-group">
                         <label for="prix">Prix de l'oeuvre</label>
-                        <input type="text" class="form-control" name="prix" id ="prix" placeholder="Prix" required="required">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="prix" id ="prix" placeholder="Prix" required="required">
+                            <div class="input-group-addon">€</div>
+                        </div>
                     </div>
                     <div class="row form-group">
                         <label class="col-xs-12" for="prop">Propriétaire</label>

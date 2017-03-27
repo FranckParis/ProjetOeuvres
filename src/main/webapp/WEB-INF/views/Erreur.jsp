@@ -15,10 +15,10 @@ function Chargement()
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Gestion des erreurs</title>
 </head>
-<body onLoad="Chargement();" >>
+<body onLoad="Chargement();" >
 <input type ="hidden" name="uneErreur"  value="${MesErreurs}"  id ="id_erreur" >
   <H1>  Une erreur est survenue</H1>
  &nbsp;&nbsp;
-  <p><a href="index.jsp">Retour à la page principale</a></p>
+  <p><a href="index.htm">Retour à la page principale</a></p>
 </body>
 </html>

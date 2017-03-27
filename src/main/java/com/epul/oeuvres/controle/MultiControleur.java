@@ -4,6 +4,7 @@ package com.epul.oeuvres.controle;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -286,5 +287,128 @@ public class MultiControleur {
 		}
 
 		return new ModelAndView("redirect:/listerReservations");
+	}
+
+	@RequestMapping(value = "ajouterOeuvrevente")
+	public ModelAndView ajouterOeuvrevente(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		String destinationPage = "";
+		try {
+			Service unService = new Service();
+			request.setAttribute("props", unService.consulterListeProprietaires());
+			destinationPage = "ajouterOeuvrevente";
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			destinationPage = "Erreur";
+		}
+
+		return new ModelAndView(destinationPage);
+	}
+
+	@RequestMapping(value = "insererOeuvrevente")
+	public ModelAndView insererOeuvrevente(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+			Oeuvrevente ov = new Oeuvrevente();
+
+			System.out.println("\n\n Controller checked \n\n");
+
+			Proprietaire prop = unService.rechercherProprietaire(Integer.parseInt(request.getParameter("prop")));
+
+			ov.setTitreOeuvrevente(request.getParameter("titre"));
+			ov.setEtatOeuvrevente("L");
+			ov.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
+			ov.setProprietaire(prop);
+
+			unService.insertOeuvrevente(ov);
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+		//destinationPage = "/listerReservations";
+		return new ModelAndView("redirect:/listerOeuvresvente");
+	}
+
+	@RequestMapping(value = "supprimerOeuvrevente/{id}")
+	public ModelAndView supprimerOeuvrevente(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+			unService.supprimerReservationsOeuvre(id);
+			unService.supprimerOeuvrevente(id);
+
+			//destinationPage = "modifierAdherent";
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+
+		return new ModelAndView("redirect:/listerOeuvresvente");
+	}
+
+	@RequestMapping(value = "modifierOeuvrevente/{id}")
+	public ModelAndView modifierOeuvrevente(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		String destinationPage = "";
+		try {
+			Service unService = new Service();
+			request.setAttribute("oeuvre", unService.rechercherOeuvreIdParam(id));
+			request.setAttribute("props", unService.consulterListeProprietaires());
+			destinationPage = "/modifierOeuvrevente";
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			destinationPage = "Erreur";
+		}
+
+		return new ModelAndView(destinationPage);
+	}
+
+	@RequestMapping(value = "updateOeuvrevente/{id}")
+	public ModelAndView updateOeuvrevente(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		//String destinationPage = "";
+		try {
+			Service unService = new Service();
+
+			Oeuvrevente ov = new Oeuvrevente();
+			ov.setIdOeuvrevente(id);
+			ov.setTitreOeuvrevente(request.getParameter("titre"));
+			ov.setEtatOeuvrevente("L");
+			ov.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
+
+			Proprietaire prop = unService.rechercherProprietaire(Integer.parseInt(request.getParameter("prop")));
+			ov.setProprietaire(prop);
+
+			unService.updateOeuvre(ov);
+
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			//destinationPage = "Erreur";
+		}
+		//destinationPage = "/listerAdherent";
+		return new ModelAndView("redirect:/listerOeuvresvente");
+	}
+
+	@RequestMapping(value = "reserverOeuvrevente/{id}")
+	public ModelAndView reserverOeuvrevente(HttpServletRequest request, HttpServletResponse response, @PathVariable(value="id") int id) throws Exception {
+
+		String destinationPage = "";
+		try {
+			Service unService = new Service();
+			request.setAttribute("oeuvre", unService.rechercherOeuvreIdParam(id));
+			request.setAttribute("adherents", unService.consulterListeAdherents());
+			request.setAttribute("oeuvres", unService.consulterListeOeuvresventeLibres());
+			destinationPage = "/reserverOeuvrevente";
+		} catch (Exception e) {
+			request.setAttribute("MesErreurs", e.getMessage());
+			destinationPage = "Erreur";
+		}
+		return new ModelAndView(destinationPage);
 	}
 }

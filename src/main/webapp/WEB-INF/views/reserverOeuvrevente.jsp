@@ -13,7 +13,7 @@
             <div class="panel-heading">
                 <h2>Réserver une oeuvre</h2>
             </div>
-            <form name='identification' method="post" action="insererReservation">
+            <form name='identification' method="post" action="/insererReservation">
                 <div class="panel-body">
                     <div class="row form-group">
                         <label class="col-xs-12" for="adherent">Adherent</label>
@@ -26,6 +26,14 @@
                         <label class="col-xs-12" for="oeuvre">Oeuvre</label>
                         <select class="col-xs-12 selectpicker" name="oeuvre" id="oeuvre" data-live-search="true">
                             <c:forEach items="${oeuvres}" var="item">
+                                <c:choose>
+                                    <c:when test="${item.idOeuvrevente == oeuvre.idOeuvrevente}">
+                                        <option value=${item.idOeuvrevente} selected>${item.titreOeuvrevente}</option>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <option value=${item.idOeuvrevente}>${item.titreOeuvrevente}</option>
+                                    </c:otherwise>
+                                </c:choose>
                                 <option value=${item.idOeuvrevente}>${item.titreOeuvrevente}</option>
                             </c:forEach>
                         </select>

@@ -7,6 +7,7 @@ import java.util.*;
 
 import com.epul.oeuvres.metier.*;
 import com.epul.oeuvres.persistance.*;
+import org.springframework.util.SocketUtils;
 
 public class Service {
 
@@ -421,5 +422,100 @@ public class Service {
 			throw new MonException(exc.getMessage(), "systeme");
 		}
 		return res;
+	}
+
+	// Consultation des propriétaires
+	// Fabrique et renvoie une liste d'objets Propriétaire contenant le r�sultat de
+	// la requ�te BDD
+	public List<Proprietaire> consulterListeProprietaires() throws MonException {
+		String mysql = "SELECT * FROM proprietaire";
+		return consulterListeProprietaires(mysql);
+	}
+
+	private List<Proprietaire> consulterListeProprietaires(String mysql) throws MonException {
+
+		List<Object> rs;
+		List<Proprietaire> props = new ArrayList<>();
+		int index = 0;
+		int cpt = 0;
+
+		try {
+			DialogueBd unDialogueBd = DialogueBd.getInstance();
+			rs = unDialogueBd.lecture(mysql);
+			//System.out.println(rs);
+
+			while (index < rs.size()) {
+				Proprietaire prop = new Proprietaire();
+
+				// Id
+				prop.setIdProprietaire(Integer.parseInt(rs.get(index).toString()));
+
+				//Nom
+				prop.setNomProprietaire(rs.get(index + 1).toString());
+
+				//Prenom
+				prop.setPrenomProprietaire(rs.get(index + 2).toString());
+
+
+				// On incr�mente tous les 15 champs
+				index = index + 3;
+
+				props.add(prop);
+
+			}
+
+			return props;
+
+		} catch (Exception exc) {
+			throw new MonException(exc.getMessage(), "systeme");
+		}
+	}
+
+	public void insertOeuvrevente(Oeuvrevente ov) throws MonException {
+		String mysql;
+
+		DialogueBd unDialogueBd = DialogueBd.getInstance();
+		try {
+			mysql = "INSERT INTO oeuvrevente (titre_oeuvrevente, etat_oeuvrevente, prix_oeuvrevente, id_proprietaire) VALUES('"
+					+ov.getTitreOeuvrevente()+"', '"
+					+ov.getEtatOeuvrevente()+"', '"
+					+ov.getPrixOeuvrevente()+"', '"
+					+ov.getProprietaire().getIdProprietaire()+"')";
+
+			System.out.println(mysql);
+
+			unDialogueBd.insertionBD(mysql);
+		} catch (MonException e) {
+			throw e;
+		}
+		catch (Exception exc) {
+			throw new MonException(exc.getMessage(), "systeme");
+		}
+	}
+
+	public void supprimerOeuvrevente(int numeroOeuvre) throws MonException {
+
+		String mysql;
+
+		DialogueBd unDialogueBd = DialogueBd.getInstance();
+		try {
+			mysql = "DELETE FROM oeuvrevente WHERE id_oeuvrevente = "+numeroOeuvre;
+			unDialogueBd.execute(mysql);
+		} catch (MonException e) {
+			throw e;
+		}
+	}
+
+	public void supprimerReservationsOeuvre(int numeroOeuvre) throws MonException {
+
+		String mysql;
+
+		DialogueBd unDialogueBd = DialogueBd.getInstance();
+		try {
+			mysql = "DELETE FROM reservation WHERE id_oeuvrevente = "+numeroOeuvre;
+			unDialogueBd.execute(mysql);
+		} catch (MonException e) {
+			throw e;
+		}
 	}
 }

@@ -21,6 +21,8 @@
                     <TH>Nom Propriétaire</TH>
                     <TH>Prénom Propriétaire</TH>
                     <TH data-orderable="false" class="tiny">Réserver</TH>
+                    <TH data-orderable="false" class="tiny">Modifier</TH>
+                    <TH data-orderable="false" class="tiny">Supprimer</TH>
                 </TR>
             </thead>
 
@@ -34,12 +36,14 @@
                         <td>${item.proprietaire.prenomProprietaire}</td>
                         <c:choose>
                             <c:when test="${item.etatOeuvrevente != 'R'}">
-                                <td><a class="btn btn-primary" href="ajouterReservation">Réserver</a></td>
+                                <td><a class="btn btn-primary" href="/reserverOeuvrevente/${item.idOeuvrevente}">Réserver</a></td>
                             </c:when>
                             <c:otherwise>
-                                <td><a class="btn btn-default disabled" href="ajouterReservation" disabled>Réservé</a></td>
+                                <td><a class="btn btn-default disabled" href="/ajouterReservation" disabled>Réservé</a></td>
                             </c:otherwise>
                         </c:choose>
+                        <td><a class="btn btn-warning" href="/modifierOeuvrevente/${item.idOeuvrevente}">Modifier</a></td>
+                        <td><a class="btn btn-danger" href="/supprimerOeuvrevente/${item.idOeuvrevente}">Supprimer</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

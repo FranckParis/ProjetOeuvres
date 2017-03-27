@@ -28,6 +28,7 @@
 			<div class="col-md-6">
 				<h3>Sélectionnez la fonctionnalité voulue:</h3>
 				<ul>
+					<li><a href="ajouterOeuvrevente">ajouter une oeuvre</a></li>
 					<li><a href="listerOeuvresvente">lister les oeuvres</a></li>
 					<li><a href="listerReservations">lister les réservations</a></li>
 					<li><a href="ajouterReservation">Réserver une oeuvre</a></li>

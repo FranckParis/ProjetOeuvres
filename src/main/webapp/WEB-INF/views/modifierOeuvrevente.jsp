@@ -8,9 +8,9 @@
 <div id="form" class="container mainContainer marginTop">
 
     <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-default">
+        <div class="panel panel-default box-primary">
             <div class="panel-heading">
-                <h2>Modification d'une oeuvre</h2>
+                <h2>Modifier une oeuvre</h2>
             </div>
             <form name='identification' method="post" action="/updateOeuvrevente/${oeuvre.idOeuvrevente}">
                 <div class="panel-body">

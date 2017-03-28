@@ -14,19 +14,17 @@
     <script type="text/javascript" src="/webjars/jquery/2.1.1/jquery.min.js"></script>
 
     <title>${param.title}</title>
+
+    <script language="javascript1.4" type="text/javascript">
+        function fermer() {
+            if (confirm("Voulez-vous vraiment quitter ?")) {
+                close();
+            }
+        }
+    </script>
 </head>
 
-
-<script language="JavaScript">
-    function fermer() {
-        if (confirm("Voulez-vous vraiment quitter ?")) {
-            close();
-        }
-    }
-</script>
-
 <body>
-
 <div id="page-wrapper">
     <header id="header">
         <nav class="navbar navbar-default navbar-fixed-top navbarCustom">

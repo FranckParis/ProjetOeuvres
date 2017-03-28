@@ -58,6 +58,27 @@ h2 {
   align-items: center;
   justify-content: center; }
 
+.box {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: 20px; }
+  .box .box-title {
+    margin-top: -10px; }
+
+.box-noMargin {
+  margin: 30px 0 !important; }
+
+.box-primary {
+  border-top: 2px solid #1067AE; }
+
+.box-danger {
+  border-top: 2px solid red; }
+
+.box-success {
+  border-top: 2px solid darkgreen; }
+
 table tr td, th {
   vertical-align: middle !important; }
 
@@ -114,7 +135,7 @@ table tr td, th {
     margin-bottom: -58px; }
 
 #index .title {
-  margin-bottom: 6em; }
+  margin-bottom: 3em; }
 
 #list .title {
   margin-bottom: 2em; }

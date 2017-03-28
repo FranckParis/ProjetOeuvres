@@ -16,24 +16,28 @@
 	</div>
 
 	<div class="container mainContainer">
-		<div class="row jumbotron">
-			<div class="col-md-6">
-				<h3>Sélectionnez la fonctionnalité voulue:</h3>
-				<ul>
-					<li><a href="ajouterAdherent.htm">Ajouter un adhérent</a></li>
-					<li><a href="listerAdherent.htm">Lister les adhérents</a></li>
-					<li><a href="javascript:fermer()">Quitter</a></li>
-				</ul>
+		<div class="row box box-primary flex--center-wrap">
+			<div class="col-md-6 flex--center-wrap">
+				<div>
+					<h3>Fonctionnalité des adhérents:</h3>
+					<ul>
+						<li><a href="ajouterAdherent.htm">Ajouter un adhérent</a></li>
+						<li><a href="listerAdherent.htm">Lister les adhérents</a></li>
+						<li><a href="javascript:fermer()">Quitter</a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-6">
-				<h3>Sélectionnez la fonctionnalité voulue:</h3>
-				<ul>
-					<li><a href="ajouterOeuvrevente">Ajouter une oeuvre</a></li>
-					<li><a href="listerOeuvresvente">Lister les oeuvres</a></li>
-					<li><a href="listerReservations">Lister les réservations</a></li>
-					<li><a href="ajouterReservation">Réserver une oeuvre</a></li>
-					<li><a href="javascript:fermer()">Quitter</a></li>
-				</ul>
+			<div class="col-md-6 flex--center-wrap">
+				<div>
+					<h3>Fonctionnalité des oeuvres:</h3>
+					<ul>
+						<li><a href="ajouterOeuvrevente">Ajouter une oeuvre</a></li>
+						<li><a href="listerOeuvresvente">Lister les oeuvres</a></li>
+						<li><a href="listerReservations">Lister les réservations</a></li>
+						<li><a href="ajouterReservation">Réserver une oeuvre</a></li>
+						<li><a href="javascript:fermer()">Quitter</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

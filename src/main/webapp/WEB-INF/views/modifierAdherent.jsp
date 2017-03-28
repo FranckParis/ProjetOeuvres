@@ -7,9 +7,9 @@
 <div id="form" class="container mainContainer marginTop">
 
     <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-default">
+        <div class="panel panel-default box-primary">
             <div class="panel-heading">
-                <h2>Ajout d'un adhérent</h2>
+                <h2>Modifier un adhérent</h2>
             </div>
             <form name='identification' method="post" action="/updateAdherent/${adherent.idAdherent}">
                 <div class="panel-body">
